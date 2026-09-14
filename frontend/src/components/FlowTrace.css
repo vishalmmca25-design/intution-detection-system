@@ -1,0 +1,45 @@
+.flow-trace {
+  width: 100%;
+  height: 64px;
+  overflow: hidden;
+}
+
+.flow-trace svg {
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+.flow-trace path {
+  transition: stroke 0.4s ease;
+  filter: drop-shadow(0 0 6px currentColor);
+}
+
+.flow-trace--idle path {
+  animation: trace-drift 6s ease-in-out infinite;
+  opacity: 0.85;
+}
+
+.flow-trace--scanning path {
+  animation: trace-jitter 0.35s linear infinite;
+}
+
+.flow-trace--safe path {
+  animation: trace-drift 5s ease-in-out infinite;
+}
+
+.flow-trace--alert path {
+  animation: trace-jitter 0.5s ease-in-out infinite;
+}
+
+@keyframes trace-drift {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-3px); }
+}
+
+@keyframes trace-jitter {
+  0%, 100% { transform: translateY(0) scaleY(1); }
+  25% { transform: translateY(-2px) scaleY(1.04); }
+  50% { transform: translateY(1px) scaleY(0.97); }
+  75% { transform: translateY(-1px) scaleY(1.02); }
+}

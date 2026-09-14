@@ -1,0 +1,132 @@
+.batch-upload {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.dropzone {
+  border: 1.5px dashed var(--hairline);
+  border-radius: 12px;
+  background: var(--panel);
+  padding: 36px 20px;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.15s ease, background 0.15s ease;
+}
+
+.dropzone:hover,
+.dropzone--over {
+  border-color: var(--accent-cyan);
+  background: #0f1a24;
+}
+
+.dropzone__icon {
+  font-size: 22px;
+  color: var(--accent-cyan);
+  margin-bottom: 8px;
+}
+
+.dropzone__text {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.batch-status {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.batch-status--error {
+  color: var(--accent-alert);
+}
+
+.batch-results {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.batch-summary {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.batch-summary__stat {
+  flex: 1;
+  min-width: 120px;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+  background: var(--panel-solid);
+  padding: 12px 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.batch-summary__value {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 22px;
+}
+
+.batch-summary__label {
+  font-size: 11px;
+  color: var(--text-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.batch-summary__stat--alert .batch-summary__value {
+  color: var(--accent-alert);
+}
+
+.batch-summary__stat--safe .batch-summary__value {
+  color: var(--accent-safe);
+}
+
+.batch-table-wrap {
+  max-height: 360px;
+  overflow-y: auto;
+  border: 1px solid var(--hairline);
+  border-radius: 10px;
+}
+
+.batch-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-data);
+  font-size: 12.5px;
+}
+
+.batch-table thead {
+  position: sticky;
+  top: 0;
+  background: var(--panel-raised);
+}
+
+.batch-table th {
+  text-align: left;
+  padding: 8px 12px;
+  color: var(--text-dim);
+  font-weight: 500;
+  border-bottom: 1px solid var(--hairline);
+}
+
+.batch-table td {
+  padding: 7px 12px;
+  border-bottom: 1px solid var(--hairline-soft);
+  color: var(--text-muted);
+}
+
+.batch-table tr.row--alert td:nth-child(2) {
+  color: var(--accent-alert);
+  font-weight: 500;
+}
+
+.batch-table tr.row--safe td:nth-child(2) {
+  color: var(--accent-safe);
+  font-weight: 500;
+}

@@ -1,0 +1,79 @@
+:root {
+  --bg: #090d16;
+  --bg-grid: #0c1220;
+  --panel: #10161f7f;
+  --panel-solid: #111826;
+  --panel-raised: #161f30;
+  --hairline: #223049;
+  --hairline-soft: #1a2436;
+  --text-primary: #e8edf7;
+  --text-muted: #8592ad;
+  --text-dim: #4c5a78;
+
+  --accent-cyan: #35d2c0;
+  --accent-cyan-dim: #1c7a70;
+  --accent-safe: #34d399;
+  --accent-safe-dim: #14532d;
+  --accent-alert: #fb5b6b;
+  --accent-alert-dim: #7f1d2b;
+  --accent-amber: #f5b84c;
+
+  --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  --font-data: 'IBM Plex Mono', ui-monospace, monospace;
+  --font-body: 'Inter', system-ui, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(ellipse 80% 50% at 50% -10%, #12253a55, transparent),
+    var(--bg);
+  color: var(--text-primary);
+  font-family: var(--font-body);
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--accent-cyan-dim);
+  color: #fff;
+}
+
+button {
+  font-family: inherit;
+}
+
+input:focus-visible,
+button:focus-visible,
+summary:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+/* subtle scanline / grid texture on the page background */
+.bg-grid {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--hairline-soft) 1px, transparent 1px),
+    linear-gradient(90deg, var(--hairline-soft) 1px, transparent 1px);
+  background-size: 42px 42px;
+  opacity: 0.35;
+  mask-image: radial-gradient(ellipse 70% 60% at 50% 20%, black, transparent 75%);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}

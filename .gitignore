@@ -1,0 +1,26 @@
+# Python
+venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Trained model artifacts (regenerate with train_model.py)
+backend/model/
+
+# Real/synthetic dataset CSVs (too large / not meant for git)
+backend/data/*.csv
+
+# Node / frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
+
+# Editor / OS cruft
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Env files (if you ever add secrets/config)
+.env
+.env.local
