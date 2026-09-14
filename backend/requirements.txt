@@ -6,9 +6,3 @@ numpy>=1.24
 scikit-learn>=1.3
 joblib>=1.3
 pydantic>=2.6
-
-# Optional: only needed for Live Monitor "capture" mode (real packet
-# sniffing). "simulate" mode works without it. On Windows you also need
-# Npcap (https://npcap.com) installed, and to run the backend as
-# Administrator, for real packet capture to work.
-scapy>=2.5

@@ -1,0 +1,11 @@
+# Only needed for Live Monitor's "capture" mode (real packet sniffing),
+# and only when running locally / on a host with a persistent process
+# (Render, Railway, a VPS, your own machine). NOT needed on Vercel —
+# serverless functions can't hold a raw socket open anyway, and simulate
+# mode already works without this package.
+#
+# Install with: pip install -r requirements-capture.txt
+#
+# On Windows you also need Npcap (https://npcap.com) installed, and to
+# run the backend as Administrator, for real packet capture to work.
+scapy>=2.5

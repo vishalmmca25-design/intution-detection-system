@@ -26,6 +26,7 @@ Endpoints:
 import asyncio
 import io
 import json
+import os
 import time
 import uuid
 from pathlib import Path
@@ -51,6 +52,16 @@ from live_monitor import LiveEngine
 MODEL_DIR = Path(__file__).parent / "model"
 MAX_HISTORY = 50
 
+# Comma-separated list of allowed frontend origins, e.g.:
+#   ALLOWED_ORIGINS=https://frontend-eight-red-79.vercel.app,http://localhost:5173
+# Defaults to "*" (allow everything) so local dev works with zero config —
+# tighten this to your real frontend URL(s) once you deploy.
+_allowed_origins_env = os.environ.get("ALLOWED_ORIGINS", "*")
+ALLOWED_ORIGINS = (
+    ["*"] if _allowed_origins_env.strip() == "*"
+    else [o.strip() for o in _allowed_origins_env.split(",") if o.strip()]
+)
+
 app = FastAPI(
     title="FlowGuard IDS API",
     description="Serves predictions from a CICIDS2017-trained intrusion detection model.",
@@ -59,7 +70,7 @@ app = FastAPI(
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],
+    allow_origins=ALLOWED_ORIGINS,
     allow_methods=["*"],
     allow_headers=["*"],
 )

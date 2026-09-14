@@ -1,0 +1,14 @@
+{
+  "builds": [
+    {
+      "src": "app.py",
+      "use": "@vercel/python",
+      "config": {
+        "includeFiles": ["model/**", "features.py", "live_monitor.py"]
+      }
+    }
+  ],
+  "routes": [
+    { "src": "/(.*)", "dest": "app.py" }
+  ]
+}
